@@ -1,20 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Characters from './components/Characters';
 import imageRickMorty from './img/rick-morty.png'
 import './App.css';
-import { useState } from 'react';
-import Characters from './components/Characters';
 
 function App() {
-const [characters, setCharacters] = useState(null); 
+  const [characters, setCharacters] = useState(null); 
 
-const reqApi = async () => {
-const api = await fetch("https://rickandmortyapi.com/api/character")
-const characterApi = await api.json(); 
+  const reqApi = async () => {
+    const api = await fetch("https://rickandmortyapi.com/api/character")
+    const characterApi = await api.json(); 
 
-setCharacters(characterApi.results);
-};
-
-
+    setCharacters(characterApi.results);
+  };
 
   return (
     <div className="App">
@@ -27,7 +24,7 @@ setCharacters(characterApi.results);
           (
             <>
               <img src={imageRickMorty} alt='Rick & Morty' className='img-home'/>
-              <button onClick={reqApi} className="bnt-search">Buscar personajes</button>   
+              <button onClick={reqApi} className="bnt-search">Buscar Personajes</button>   
             </>
           )
         }
